@@ -40,7 +40,7 @@ case $1 in
 	w1r3|wire|w1r3.net|w*)
 		curl -sF 'upload=@-' https://w1r3.net < $ARG
 	;;
-	clbin|c*)
+	clbin|cl*)
 		curl -sF 'clbin=<-' https://clbin.com < $ARG
 	;;
 	uguu|uguu.se|u*)
@@ -52,13 +52,25 @@ case $1 in
 	fiery|fiery.me|f*)
 		curl -sF 'files[]=@-' https://safe.fiery.me/api/upload < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's/"url":"//;s/"//'
 	;;
-	doko|doko.me|d*)
+	doko|doko.me|do*)
 		curl -sF 'files[]=@-' https://doko.moe/upload.php < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's/"url":"//;s/"//;s/[\]//g'
 	;;
 	mixtape|mixtape.moe|m*)
 		curl -sF 'files[]=@-' https://mixtape.moe/upload.php < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's/"url":"//;s/"//;s/[\]//g'
 	;;
-	ptpb|ptpb.pw|p*)
+	pomf|pomf.cat|po*)
+		curl -sF 'files[]=@-' https://pomf.cat/upload.php < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's!"url":"!https://a.pomf.cat/!;s/"//'
+	;;
+	catbox|catbox.moe|cat*)
+		curl -sF 'reqtype=fileupload' -F 'fileToUpload=@-' https://catbox.moe/user/api.php < $ARG
+	;;
+	asis|asis.io|a*)
+		curl -sF 'files[]=@-' https://up.asis.io/upload.php < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's!"url":"!https://dl.asis.io/!;s/"//'
+	;;
+	dmca|dmca.gripe|gripe|dm*)
+		curl -sF 'files[]=@-' http://dmca.gripe/api/upload < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's/"url":"//;s/"//;s/[\]//g'
+	;;
+	ptpb|ptpb.pw|pt*)
 		curl -sF 'c=@-' https://ptpb.pw/ < $ARG | grep "url:" | sed 's/url: //'
 	;;
 	*)
