@@ -22,27 +22,26 @@
 #   pb ix ~/.vimrc
 #   pb 0x0 <(ps aux)
 
-_URL=
+ARG="${2:-/dev/stdin}"
 
 case $1 in
-	ix|ix.io)
-		_URL=`cat "$2" | curl -sF 'f:1=<-' ix.io`
+	ix|ix.io|i*)
+		curl -sF 'f:1=<-' ix.io < $ARG
 	;;
-	0x0|null|nullbyte)
-		_URL=`cat "$2" | curl -sF file=@- https://0x0.st`
+	0x0|null|nullbyte|0*)
+		curl -sF file=@- https://0x0.st < $ARG
 	;;
-	sprunge|sprunge.us)
-		_URL=`cat "$2" | curl -sF 'sprunge=<-' http://sprunge.us`
+	sprunge|sprunge.us|s*)
+		curl -sF 'sprunge=<-' http://sprunge.us < $ARG
 	;;
-	w1r3|wire|w1r3.net)
-		_URL=`cat "$2" | curl -sF upload=@- https://w1r3.net`
+	w1r3|wire|w1r3.net|w*)
+		curl -sF upload=@- https://w1r3.net < $ARG
 	;;
-	clbin)
-		_URL=`cat "$2" | curl -sF 'clbin=<-' https://clbin.com`
+	clbin|c*)
+		curl -sF 'clbin=<-' https://clbin.com < $ARG
 	;;
 	*)
 		echo "unknown"
 	;;
 esac
 
-echo "$_URL"
