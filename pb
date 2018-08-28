@@ -73,6 +73,9 @@ case $1 in
 	ptpb|ptpb.pw|pt*)
 		curl -sF 'c=@-' https://ptpb.pw/ < $ARG | grep "url:" | sed 's/url: //'
 	;;
+	rokket|rokket.space|r*)
+		curl -sF 'files[]=@-' https://rokket.space/upload < $ARG | grep 'url' | sed 's/"url": "//;s/",//;s/ //g'
+	;;
 	*)
 		echo "unknown"
 	;;
