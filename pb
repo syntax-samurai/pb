@@ -22,6 +22,15 @@
 #   pb ix ~/.vimrc
 #   pb 0x0 <(ps aux)
 
+usage () {
+    cat <<EOF
+pb; a command line pastebin service helper
+usage: pb <service> [file|stream]
+services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space
+EOF
+  exit 0
+}
+
 ARG="${2:-/dev/stdin}"
 
 case $1 in
@@ -77,7 +86,7 @@ case $1 in
 		curl -sF 'files[]=@-' https://rokket.space/upload < $ARG | grep 'url' | sed 's/"url": "//;s/",//;s/ //g'
 	;;
 	*)
-		echo "unknown"
+		usage
 	;;
 esac
 
