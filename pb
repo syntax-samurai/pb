@@ -21,6 +21,7 @@
 # examples:
 #   pb ix ~/.vimrc
 #   pb 0x0 <(ps aux)
+#   dmesg | pb iop
 
 usage () {
     cat <<EOF
@@ -43,13 +44,13 @@ case $1 in
 	sprunge|sprunge.us|s*)
 		curl -sF 'sprunge=<-' http://sprunge.us < $ARG
 	;;
-	iotek|iopaste|iop*)
+	iotek|iopaste|p.iotek.org|iop*)
 		curl -sT- https://p.iotek.org < $ARG
 	;;
 	w1r3|wire|w1r3.net|w*)
 		curl -sF 'upload=@-' https://w1r3.net < $ARG
 	;;
-	clbin|cl*)
+	clbin|clbin.com|cl*)
 		curl -sF 'clbin=<-' https://clbin.com < $ARG
 	;;
 	uguu|uguu.se|u*)
