@@ -27,7 +27,7 @@ usage () {
     cat <<EOF
 pb; a command line pastebin service helper
 usage: pb <service> [file|stream]
-services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space
+services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space, dumpz.org, n33r.tk
 EOF
   exit 0
 }
@@ -85,6 +85,12 @@ case $1 in
 	;;
 	rokket|rokket.space|r*)
 		curl -sF 'files[]=@-' https://rokket.space/upload < $ARG | grep 'url' | sed 's/"url": "//;s/",//;s/ //g'
+	;;
+	dumpz|dumpz.org|du*)
+		curl -s --data-binary @- https://dumpz.org < $ARG | sed 's/http/&s/;s!$!/text/!'
+	;;
+	n33r|n33r.tk|n*)
+		curl -sF 'files[]=@-' https://n33r.tk/upload.php < $ARG | grep 'url' | sed 's/.*"url": "//;s/"//;s/[\]//g;s/[",]//;s/http/&s/'
 	;;
 	*)
 		usage
