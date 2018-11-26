@@ -27,7 +27,8 @@ usage () {
     cat <<EOF
 pb; a command line pastebin service helper
 usage: pb <service> [file|stream]
-services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space, dumpz.org, n33r.tk
+services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space, dumpz.org, n33r.tk, pastbin.com
+
 EOF
   exit 0
 }
@@ -91,6 +92,29 @@ case $1 in
 	;;
 	n33r|n33r.tk|n*)
 		curl -sF 'files[]=@-' https://n33r.tk/upload.php < $ARG | grep 'url' | sed 's/.*"url": "//;s/"//;s/[\]//g;s/[",]//;s/http/&s/'
+	;;
+	pb|pastebin|pastebin.com)
+		[ -z ${PB_API_DEV} ] && usage
+		PRIVACY="${PRIVACY:-1}"
+		if [ -n "${PRIVACY}" ]; then
+			case ${PRIVACY} in
+				public|0)
+					PRIVACY=0
+				;;
+				unlisted|1)
+					PRIVACY=1
+				;;
+				private|2)
+					PRIVACY=2
+				;;
+				*)
+					usage
+				;;
+			esac
+		fi
+		qs="api_option=paste&api_dev_key=${PB_API_DEV}&api_paste_expire_date=N&api_paste_private=${PRIVACY}&api_paste_name=`basename ${ARG}`"
+		[ -n ${PB_API_USR} ] && [ -z ${ANON} ] && qs="${qs}&api_user_key=${PB_API_USR}"
+		curl -d "${qs}" --data-urlencode "api_paste_code=`<$ARG`" http://pastebin.com/api/api_post.php
 	;;
 	*)
 		usage
