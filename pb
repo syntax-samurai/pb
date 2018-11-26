@@ -1,33 +1,52 @@
 #!/bin/sh
-#                              ██           ██      ██
-#  ██████                     ░██          ░██     ░░
-# ░██░░░██  ██████    ██████ ██████  █████ ░██      ██ ███████
-# ░██  ░██ ░░░░░░██  ██░░░░ ░░░██░  ██░░░██░██████ ░██░░██░░░██
-# ░██████   ███████ ░░█████   ░██  ░███████░██░░░██░██ ░██  ░██
-# ░██░░░   ██░░░░██  ░░░░░██  ░██  ░██░░░░ ░██  ░██░██ ░██  ░██
-# ░██     ░░████████ ██████   ░░██ ░░██████░██████ ░██ ███  ░██
-# ░░       ░░░░░░░░ ░░░░░░     ░░   ░░░░░░ ░░░░░   ░░ ░░░   ░░
 #
-#  ▓▓▓▓▓▓▓▓▓▓
-# ░▓ author ▓ xero <x@xero.nu>
-# ░▓ code   ▓ http://code.xero.nu/dotfiles
-# ░▓ mirror ▓ http://git.io/.files
-# ░▓▓▓▓▓▓▓▓▓▓
-# ░░░░░░░░░░
+# pb; a command line pastebin service helper
+#    {kopimi,CC0} MMXVIII . syntax samurai
+#         ▟▙
+# ▟▒░░░░░░░▜▙▜████████████████████████████████▛
+# ▜▒░░░░░░░▟▛▟▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▛
+#         ▜▛
+# authors:
+#   xero  <https://xero.nu>
+#   stark <https://git.io/stark>
+# code:
+#   https://code.xero.nu/pb
+#   https://git.io/pb.sh
+# greets:
+#   all the ops of these great free services <3
 #
-# usage:
-#   pb <service> [file|stream]
-#
-# examples:
-#   pb ix ~/.vimrc
-#   pb 0x0 <(ps aux)
-#   dmesg | pb iop
-
 usage () {
     cat <<EOF
+
+          █
+     ▄▀▀▄ █▐▀▄
+░ ░ ░█▐░█░█▐░█░ ░ ░
+     █▐▄▀ ▀▄▄▀
+     █
+
 pb; a command line pastebin service helper
-usage: pb <service> [file|stream]
-services: ix.io, 0x0.st, sprunge.us, p.iotek.org, w1r3.net, clbin.com, uguu.se, lewd.se, fiery.me, doko.me, mixtape.moe, pomf.cat, catbox.moe, asis.io, dmca.gripe, ptpb.pw, rokket.space, dumpz.org, n33r.tk, pastbin.com
+
+usage:
+   pb <service> [file|stream]
+
+services:
+   ix.io, 0x0.st, sprunge.us, p.iotek.org,
+   clbin.com, uguu.se, lewd.se, fiery.me,
+   doko.me, mixtape.moe, pomf.cat, catbox.moe,
+   asis.io, dmca.gripe, ptpb.pw, rokket.space,
+   dumpz.org, n33r.tk, w1r3.net, pastebin.com
+
+environment variables for pastebin.com:
+   PB_API_DEV: developer api key [required] https://pastebin.com/api#1
+   PB_API_USR: user api key [optional] https://pastebin.com/api#8
+   PRIVACY: paste visibility  [optional] valid values: public|0, unlisted|1, private|2
+   ANON: paste w/o a user key even if defined [optional]
+
+examples:
+   pb ix ~/.vimrc
+   pb 0x0 <(ps aux)
+   dmesg | pb iop
+   PB_API_DEV=XXXX PRIVACY=0 pb pb /tmp/leak.txt
 
 EOF
   exit 0
@@ -120,4 +139,4 @@ case $1 in
 		usage
 	;;
 esac
-
+# vi:syntax=sh
