@@ -51,7 +51,6 @@
 - [rokket.space](https://rokket.space)
 - [dumpz.org](https://dumpz.org)
 - [n33r.tk](https://n33r.tk)
-- [w1r3.net](https://w1r3.net)
 - [pastebin.com](https://pastebin.com)
 
 ## environment variables for pastebin.com:

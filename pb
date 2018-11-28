@@ -34,7 +34,7 @@ services:
    clbin.com, uguu.se, lewd.se, fiery.me,
    doko.me, mixtape.moe, pomf.cat, catbox.moe,
    asis.io, dmca.gripe, ptpb.pw, rokket.space,
-   dumpz.org, n33r.tk, w1r3.net, pastebin.com
+   dumpz.org, n33r.tk, pastebin.com
 
 environment variables for pastebin.com:
    PB_API_DEV: developer api key [required] https://pastebin.com/api#1
@@ -66,9 +66,6 @@ case $1 in
 	;;
 	iotek|iopaste|p.iotek.org|iop*)
 		curl -sT- https://p.iotek.org < $ARG
-	;;
-	w1r3|wire|w1r3.net|w*)
-		curl -sF 'upload=@-' https://w1r3.net < $ARG
 	;;
 	clbin|clbin.com|cl*)
 		curl -sF 'clbin=<-' https://clbin.com < $ARG

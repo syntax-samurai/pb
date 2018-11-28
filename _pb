@@ -20,7 +20,6 @@ _pb() {
 		'rokket.space'
 		'sprunge.us'
 		'uguu.se'
-		'w1r3.net'
 		'pastebin.com'
 	)
 	if (( CURRENT == 2 )); then
