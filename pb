@@ -33,8 +33,8 @@ services:
    ix.io, 0x0.st, sprunge.us, p.iotek.org,
    clbin.com, uguu.se, lewd.se, fiery.me,
    doko.me, mixtape.moe, pomf.cat, catbox.moe,
-   asis.io, dmca.gripe, ptpb.pw, rokket.space,
-   dumpz.org, n33r.tk, pastebin.com
+   asis.io, dmca.gripe, rokket.space, dumpz.org,
+   n33r.tk, pastebin.com
 
 environment variables for pastebin.com:
    PB_API_DEV: developer api key [required] https://pastebin.com/api#1
@@ -96,9 +96,6 @@ case $1 in
 	;;
 	dmca|dmca.gripe|gripe|dm*)
 		curl -sF 'files[]=@-' http://dmca.gripe/api/upload < $ARG | grep -Po '"url":"[A-Za-z0-9]+.*?"' | sed 's/"url":"//;s/"//;s/[\]//g'
-	;;
-	ptpb|ptpb.pw|pt*)
-		curl -sF 'c=@-' https://ptpb.pw/ < $ARG | grep "url:" | sed 's/url: //'
 	;;
 	rokket|rokket.space|r*)
 		curl -sF 'files[]=@-' https://rokket.space/upload < $ARG | grep 'url' | sed 's/"url": "//;s/",//;s/ //g'
