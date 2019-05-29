@@ -39,21 +39,18 @@
 - [p.iotek.org](https://p.iotek.org)
 - [clbin.com](https://clbin.com)
 - [uguu.se](https://uguu.se)
-- [lewd.se](https://lewd.se)
 - [fiery.me](https://fiery.me)
-- [doko.me](https://doko.me)
-- [mixtape.moe](https://mixtape.moe)
-- [pomf.cat](https://pomf.cat)
 - [catbox.moe](https://catbox.moe)
-- [asis.io](https://asis.io)
 - [dmca.gripe](https://dmca.gripe)
-- [ptpb.pw](https://ptpb.pw)
-- [rokket.space](https://rokket.space)
 - [dumpz.org](https://dumpz.org)
-- [n33r.tk](https://n33r.tk)
 - [pastebin.com](https://pastebin.com)
 
-## environment variables for pastebin.com:
+## environment variables:
+
+- `UA` 
+	- user-agent string (defaults to some chrome one)
+
+## envs for pastebin.com:
 
 - `PB_API_DEV`
 	- developer api key [required] https://pastebin.com/api#1
@@ -75,6 +72,8 @@
 	- https://p.iotek.org/gb2
 - `PB_API_DEV=XXXX PRIVACY=0 pb pb /tmp/leak.txt`
 	- https://pastebin.com/ri2QUGCy
+- `UA="Mozilla/5.0 (PlayStation 4 5.55) AppleWebKit/601.2 (KHTML, like Gecko)" pb fiery gnu`
+	- https://i.fiery.me/huLq
 
 ## license
 
