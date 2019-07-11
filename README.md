@@ -33,17 +33,18 @@
 
 # services
 
-- [ix.io](http://ix.io)
 - [0x0.st](https://0x0.st)
-- [sprunge.us](http://sprunge.us)
-- [p.iotek.org](https://p.iotek.org)
-- [clbin.com](https://clbin.com)
-- [uguu.se](https://uguu.se)
-- [fiery.me](https://fiery.me)
 - [catbox.moe](https://catbox.moe)
+- [clbin.com](https://clbin.com)
 - [dmca.gripe](https://dmca.gripe)
 - [dumpz.org](https://dumpz.org)
+- [fiery.me](https://fiery.me)
+- [ix.io](http://ix.io)
+- [p.iotek.org](https://p.iotek.org)
 - [pastebin.com](https://pastebin.com)
+- [sprunge.us](http://sprunge.us)
+- [uguu.se](https://uguu.se)
+- [w1r3.net](https://w1r3.net)
 
 ## environment variables:
 

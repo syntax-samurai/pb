@@ -2,17 +2,18 @@
 _pb() {
 	local -a commands
 	commands=(
-		'ix.io'
 		'0x0.st'
 		'catbox.moe'
 		'clbin.com'
 		'dmca.gripe'
 		'dumpz.org'
 		'fiery.me'
+		'ix.io'
 		'p.iotek.org'
+		'pastebin.com'
 		'sprunge.us'
 		'uguu.se'
-		'pastebin.com'
+		'w1r3.net'
 	)
 	if (( CURRENT == 2 )); then
 		_describe -t commands 'commands' commands

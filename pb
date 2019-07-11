@@ -30,9 +30,9 @@ usage:
    pb <service> [file|stream]
 
 services:
-   ix.io, 0x0.st, sprunge.us, p.iotek.org,
-   clbin.com, uguu.se, fiery.me, dumpz.org,
-   catbox.moe, dmca.gripe, pastebin.com
+   0x0.st, catbox.moe, clbin.com, dmca.gripe,
+   dumpz.org, fiery.me, ix.io, p.iotek.org,
+   pastebin.com, sprunge.us, uguu.se, w1r3.net
 
 environment variables:
    UA: user-agent string (defaults to some chrome one)
@@ -89,6 +89,9 @@ case $1 in
 	;;
 	dumpz|dumpz.org|du*)
 		curl -A "$UA" -s --data-binary @- https://dumpz.org < $ARG | sed 's/http/&s/;s!$!/text/!'
+	;;
+	w1r3|wire|w1r3.net|w*)
+		curl -sF 'upload=@-' https://w1r3.net < $ARG
 	;;
 	pb|pastebin|pastebin.com)
 		[ -z ${PB_API_DEV} ] && usage
