@@ -1,13 +1,11 @@
 # pb
 
 ```
-          █
-     ▄▀▀▄ █▐▀▄
-░ ░ ░█▐░█░█▐░█░ ░ ░
-     █▐▄▀ ▀▄▄▀
      █
-
- pb; command line pastebin service helper
+▄▀▀▄ █▐▀▄
+█▐░█░█▐░█░ ░ ░
+█▐▄▀ ▀▄▄▀
+█   pb; command line pastebin service helper
  {kopimi,CC0} MMXVIII-MMXXIV . syntax samurai
          ▟▙
  ▟▒░░░░░░░▜▙▜████████████████████████████████▛
