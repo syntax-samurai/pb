@@ -2,20 +2,17 @@
 _pb() {
 	local -a commands
 	commands=(
-		'0x0.st'
-		'catbox.moe'
-		'clbin.com'
-		'dmca.gripe'
-		'dumpz.org'
-		'fiery.me'
+		'temp.sh'
 		'ix.io'
+		'0x0.st'
 		'p.iotek.org'
-		'pastebin.com'
-		'sprunge.us'
+		'clbin.com'
 		'uguu.se'
-		'w1r3.net'
+		'catbox.moe'
+		'lewd.se'
+		'pastebin.com'
 	)
-	if (( CURRENT == 2 )); then
+	if ((CURRENT == 2)); then
 		_describe -t commands 'commands' commands
 	else
 		_files
