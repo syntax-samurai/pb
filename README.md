@@ -34,6 +34,7 @@
 - [catbox.moe](https://catbox.moe)
 - [clbin.com](https://clbin.com)
 - [ix.io](http://ix.io)
+- [lewd.se](https://lewd.se)
 - [p.iotek.org](https://p.iotek.org)
 - [pastebin.com](https://pastebin.com)
 - [temp.sh](https://temp.sh)
